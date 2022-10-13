@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript change Event for Radio Buttons</title>
+</head>
+<body>
+    <input type="radio" id="debito" name="status"> 
+    <label for="debito">Cartão de Débito</label>
+    <input type="radio" id="credito" name="status"> 
+    <label for="credito">Cartão de Crédito</label>
+    <input type="radio" id="pix" name="status">
+    <label for="pix">Pix</label> 
+
+    <p id="result"></p>
+
+    <script>
+        let result = document.querySelector('#result');
+
+        document.body.addEventListener('change', function (e) {
+            let target = e.target
+
+            let message
+            
+            switch (target.id) {
+                case 'debito':
+                    message = 'Número do Cartão: <input type="text"/><br> Número do Cartão: <input type="text"/> '
+                    break;
+                case 'credito':
+                    message = 'The Resolved radio button changed';
+                    break;
+                case 'pix':
+                    message = 'The Rejected radio button changed';
+                    break;
+            }
+            result.innerHTML= message;
+        });
+    </script>
+</body>
+</html>
